@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Recursos</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace a hoja de estilos externa -->
+    <script src="scripts.js"></script> <!-- Archivo JS externo -->
+    <style>
+        /* Puedes incluir estilos básicos aquí si no tienes un archivo CSS externo */
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <table id="inputTable">
+            <thead>
+                <tr>
+                    <th>Fila</th>
+                    <th>Año</th>
+                    <th>ID Producto</th>
+                    <th>Recursos Propios</th>
+                    <th>Recursos SGP</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <select required>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="currency" onblur="formatCurrency(this)" onkeydown="moveToNextCell(event, this)" required></td>
+                    <td><input type="text" class="currency" onblur="formatCurrency(this)" onkeydown="moveToNextCell(event, this)" required></td>
+                    <td><button class="button" onclick="removeRow(this)">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="button" onclick="addRow()">Añadir fila</button>
+        <button class="button" onclick="generateReport()">Generar informe</button>
+        <button class="button" onclick="resetTable()">Eliminar Todo</button>
+        <button class="button" onclick="calculateTotal()">Calcular Totales</button>
+        
+    </div>
+    <div id="report" class="table-container"></div>
+    <div id="totals" style="margin-top: 20px;"></div>
+
+
+</body>
+</html>
